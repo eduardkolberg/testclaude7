@@ -4,14 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuData, MenuItem } from "@/lib/menu-data";
 
+interface BreadcrumbItem {
+  title: string;
+  slug: string;
+}
+
 function findBreadcrumbPath(
   items: MenuItem[],
   slugs: string[],
-  currentPath: string[] = []
-): { title: string; href: string }[] | null {
+  currentPath: BreadcrumbItem[] = []
+): BreadcrumbItem[] | null {
   for (const item of items) {
     if (item.slug === slugs[0]) {
-      const newPath = [...currentPath, { title: item.title, href: [...currentPath.map(p => p.href.split('/').pop()), item.slug].join('/') }];
+      const newPath = [...currentPath, { title: item.title, slug: item.slug }];
 
       if (slugs.length === 1) {
         return newPath;
@@ -35,9 +40,9 @@ export default function Breadcrumbs() {
   const breadcrumbs = findBreadcrumbPath(menuData, slugs) || [];
 
   // Build proper hrefs
-  const items = breadcrumbs.map((_, index) => {
+  const items = breadcrumbs.map((crumb, index) => {
     const href = "/" + slugs.slice(0, index + 1).join("/");
-    return { title: breadcrumbs[index].title, href };
+    return { title: crumb.title, href };
   });
 
   return (
