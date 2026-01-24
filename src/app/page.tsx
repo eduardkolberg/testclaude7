@@ -4,6 +4,13 @@ import { menuData } from "@/lib/menu-data";
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-4">
+      {/* Banner */}
+      <div className="bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-xl p-6 mb-8 text-center shadow-lg">
+        <p className="text-lg font-semibold">
+          Jetzt Besichtigungstermin vereinbaren! Rufen Sie uns an: 0531 123 456 789
+        </p>
+      </div>
+
       <section className="text-center mb-16">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">
           Willkommen in der Senioren-WG Braunschweig
