@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Senioren-WG Braunschweig",
+  title: "WG Südstadt - Senioren-WG Braunschweig",
   description: "Selbstbestimmt leben in familiärer Gemeinschaft",
 };
 
@@ -26,17 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50`}
-      >
+      <body className={`${dmSans.variable} antialiased bg-[#F5F7F9]`} style={{ fontFamily: "'DM Sans', sans-serif" }}>
         <Navigation />
         <Breadcrumbs />
         <main>{children}</main>
-        <footer className="bg-gray-800 text-white py-8 mt-12">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2024 Senioren-WG Braunschweig. Alle Rechte vorbehalten.</p>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
