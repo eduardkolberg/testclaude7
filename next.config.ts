@@ -6,10 +6,6 @@ const securityHeaders = [
     value: 'on'
   },
   {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload'
-  },
-  {
     key: 'X-Frame-Options',
     value: 'SAMEORIGIN'
   },
@@ -29,33 +25,6 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()'
   },
-  {
-    key: 'Cross-Origin-Opener-Policy',
-    value: 'same-origin'
-  },
-  {
-    key: 'Cross-Origin-Resource-Policy',
-    value: 'same-origin'
-  },
-  {
-    key: 'Cross-Origin-Embedder-Policy',
-    value: 'credentialless'
-  },
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: https://images.unsplash.com",
-      "connect-src 'self'",
-      "frame-ancestors 'self'",
-      "form-action 'self'",
-      "base-uri 'self'",
-      "upgrade-insecure-requests"
-    ].join('; ')
-  }
 ];
 
 const nextConfig: NextConfig = {
