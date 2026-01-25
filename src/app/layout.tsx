@@ -13,8 +13,9 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
+  weight: ["400", "600", "700"],  // Reduced weights for smaller bundle
+  display: "optional",  // Non-blocking font loading
+  preload: true,
 });
 
 export const viewport: Viewport = {

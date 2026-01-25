@@ -48,17 +48,13 @@ const nextConfig: NextConfig = {
   // Optimize production builds
   productionBrowserSourceMaps: false,
 
+  // Disable strict mode in production for better performance
+  reactStrictMode: false,
+
   // Experimental optimizations
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['react', 'react-dom'],
-  },
-
-  // Modularize imports for smaller bundles
-  modularizeImports: {
-    'react': {
-      transform: 'react',
-    },
   },
 
   async headers() {
