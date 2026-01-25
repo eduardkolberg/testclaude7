@@ -13,20 +13,23 @@ function MobileMenuItem({ item, basePath = "" }: { item: MenuItem; basePath?: st
       <div className="flex items-center">
         <Link
           href={currentPath}
-          className="px-4 py-2 hover:bg-white/10 rounded-xl transition-colors block flex-grow text-white"
+          className="px-4 py-3 hover:bg-white/10 rounded-xl transition-colors block flex-grow text-white min-h-[48px] flex items-center"
         >
           {item.title}
         </Link>
         {item.children && (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 hover:bg-white/10 rounded-xl ml-1 text-white"
+            className="p-3 hover:bg-white/10 rounded-xl ml-1 text-white min-w-[48px] min-h-[48px] flex items-center justify-center"
+            aria-label={isOpen ? `${item.title} Untermenü schließen` : `${item.title} Untermenü öffnen`}
+            aria-expanded={isOpen}
           >
             <svg
               className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -54,23 +57,23 @@ export default function Navigation() {
           {/* Logo + Menu */}
           <div className="flex items-center gap-7">
             {/* Logo */}
-            <Link href="/" className="h-[68px] w-[215px] flex items-center">
+            <Link href="/" className="h-[68px] w-[215px] flex items-center" aria-label="WG Südstadt - Zur Startseite">
               <div className="bg-gradient-to-r from-[#002CA8] to-[#0688B5] rounded-lg flex items-center justify-center text-white font-bold text-xl px-4 py-3 w-full h-full">
                 WG SÜDSTADT
               </div>
             </Link>
 
             {/* Desktop Menu */}
-            <nav className="hidden lg:flex gap-2 items-center">
+            <nav className="hidden lg:flex gap-2 items-center" aria-label="Hauptnavigation">
               {menuData.map((level1) => (
                 <div key={level1.id} className="relative group">
                   <Link
                     href={`/${level1.slug}`}
-                    className="flex items-center gap-1 px-3 py-2 rounded-xl text-white text-lg font-medium hover:bg-white/10 transition-colors"
+                    className="flex items-center gap-1 px-3 py-2 rounded-xl text-white text-lg font-medium hover:bg-white/10 transition-colors min-h-[48px]"
                   >
                     {level1.title}
                     {level1.children && (
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     )}
@@ -83,11 +86,11 @@ export default function Navigation() {
                         <li key={level2.id} className="relative group/sub">
                           <Link
                             href={`/${level1.slug}/${level2.slug}`}
-                            className="block px-4 py-3 hover:bg-white/10 text-white/80 hover:text-white flex justify-between items-center transition-colors"
+                            className="block px-4 py-3 hover:bg-white/10 text-white/90 hover:text-white flex justify-between items-center transition-colors min-h-[48px]"
                           >
                             <span>{level2.title}</span>
                             {level2.children && (
-                              <svg className="w-4 h-4 ml-2 text-[#0688B5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 ml-2 text-[#0688B5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
                             )}
@@ -100,7 +103,7 @@ export default function Navigation() {
                                 <li key={level3.id}>
                                   <Link
                                     href={`/${level1.slug}/${level2.slug}/${level3.slug}`}
-                                    className="block px-4 py-3 hover:bg-white/10 text-white/70 hover:text-[#0688B5] transition-colors"
+                                    className="block px-4 py-3 hover:bg-white/10 text-white/80 hover:text-[#5BB5E0] transition-colors min-h-[48px] flex items-center"
                                   >
                                     {level3.title}
                                   </Link>
@@ -120,40 +123,53 @@ export default function Navigation() {
           {/* Right side */}
           <div className="hidden md:flex items-center gap-4">
             {/* Search */}
-            <button className="w-6 h-6 text-white hover:text-white/80 transition-colors">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <button
+              className="w-12 h-12 text-white hover:text-white/80 transition-colors flex items-center justify-center rounded-xl hover:bg-white/10"
+              aria-label="Suche öffnen"
+            >
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6" aria-hidden="true">
                 <circle cx="11" cy="11" r="7"/>
                 <path d="M21 21l-4.35-4.35"/>
               </svg>
             </button>
 
-            <div className="w-px h-[30px] bg-white/20"></div>
+            <div className="w-px h-[30px] bg-white/20" aria-hidden="true"></div>
 
             {/* Language */}
-            <button className="flex items-center gap-2 text-white text-base hover:text-white/80 transition-colors">
+            <button
+              className="flex items-center gap-2 text-white text-base hover:text-white/80 transition-colors min-w-[48px] min-h-[48px] px-2 rounded-xl hover:bg-white/10"
+              aria-label="Sprache wechseln, aktuell Ukrainisch"
+            >
               <span>UA</span>
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div className="w-px h-[30px] bg-white/20"></div>
+            <div className="w-px h-[30px] bg-white/20" aria-hidden="true"></div>
 
             {/* Phone */}
-            <a href="tel:053118054700" className="flex items-center gap-2 text-white text-lg font-medium hover:text-white/80 transition-colors">
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <a
+              href="tel:053118054700"
+              className="flex items-center gap-2 text-white text-lg font-medium hover:text-white/80 transition-colors min-h-[48px] px-2 rounded-xl hover:bg-white/10"
+              aria-label="Anrufen: 0531 180 54 700"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
-              (0531) 180 54 700
+              <span className="hidden lg:inline">(0531) 180 54 700</span>
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl hover:bg-white/10 text-white"
+            className="lg:hidden p-3 rounded-xl hover:bg-white/10 text-white min-w-[48px] min-h-[48px] flex items-center justify-center"
+            aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -165,7 +181,7 @@ export default function Navigation() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4 pt-4">
+          <nav className="lg:hidden pb-4 pt-4" id="mobile-menu" aria-label="Mobile Navigation">
             <ul className="space-y-1">
               {menuData.map((item) => (
                 <MobileMenuItem key={item.id} item={item} />
@@ -173,13 +189,17 @@ export default function Navigation() {
             </ul>
 
             {/* Mobile phone */}
-            <a href="tel:053118054700" className="flex items-center gap-2 text-white text-lg font-medium mt-4 px-4">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <a
+              href="tel:053118054700"
+              className="flex items-center gap-2 text-white text-lg font-medium mt-4 px-4 py-3 min-h-[48px]"
+              aria-label="Anrufen: 0531 180 54 700"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
               (0531) 180 54 700
             </a>
-          </div>
+          </nav>
         )}
       </div>
     </header>

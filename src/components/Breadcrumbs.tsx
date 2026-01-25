@@ -45,20 +45,20 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="bg-white py-5">
+    <nav className="bg-white py-5" aria-label="Breadcrumb">
       <div className="max-w-[1200px] mx-auto px-5">
-        <ol className="flex flex-wrap items-center gap-4 text-sm">
+        <ol className="flex flex-wrap items-center gap-4 text-sm" role="list">
           {items.map((item, index) => (
             <li key={item.href} className="flex items-center gap-4">
               {index > 0 && (
-                <span className="text-[#C3D6DD]">—</span>
+                <span className="text-[#C3D6DD]" aria-hidden="true">—</span>
               )}
               {index === items.length - 1 ? (
-                <span className="text-[#333435]">{item.title}</span>
+                <span className="text-[#1a1a1a]" aria-current="page">{item.title}</span>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-[#13263f] underline decoration-[#aaafb5] hover:decoration-[#13263f] transition-colors"
+                  className="text-[#0562a8] underline decoration-[#aaafb5] hover:decoration-[#0562a8] transition-colors"
                 >
                   {item.title}
                 </Link>
