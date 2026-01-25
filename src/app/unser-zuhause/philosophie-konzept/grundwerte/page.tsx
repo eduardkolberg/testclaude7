@@ -1,67 +1,32 @@
-"use client";
-
-import { useState } from "react";
+import { Suspense } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
-interface FAQItemProps {
-  question: string;
-  answer: string;
-  id: string;
-}
+// Lazy load below-the-fold components
+const FAQSection = dynamic(() => import("@/components/FAQSection"), {
+  loading: () => <div className="bg-[#E8F5FC] py-[60px] px-5 animate-pulse" />,
+});
 
-function FAQItem({ question, answer, id }: FAQItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const answerId = `faq-answer-${id}`;
-  const questionId = `faq-question-${id}`;
-
-  return (
-    <div className="bg-white rounded-xl mb-4 overflow-hidden shadow-sm">
-      <button
-        className="w-full px-6 py-5 text-left text-lg font-semibold text-[#13263f] flex justify-between items-center hover:bg-[#F5F7F9] transition-colors min-h-[56px]"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        aria-controls={answerId}
-        id={questionId}
-      >
-        <span>{question}</span>
-        <svg
-          className={`w-5 h-5 transition-transform flex-shrink-0 ml-4 ${isOpen ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div
-        id={answerId}
-        role="region"
-        aria-labelledby={questionId}
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0"}`}
-      >
-        <p className="px-6 pb-5 text-[#333435] leading-relaxed">{answer}</p>
-      </div>
-    </div>
-  );
-}
+const ContactSection = dynamic(() => import("@/components/ContactSection"), {
+  loading: () => <div className="bg-white py-[60px] px-5 animate-pulse" />,
+});
 
 export default function GrundwertePage() {
   return (
     <>
       {/* Main Content */}
       <div className="max-w-[1200px] mx-auto py-10 px-5">
-        <h1 className="text-4xl font-bold text-[#13263f] mb-5 fade-in">
+        <h1 className="text-4xl font-bold text-[#13263f] mb-5">
           Selbstbestimmt leben: Unsere Grundwerte
         </h1>
 
-        <p className="text-lg leading-relaxed text-[#333435] mb-10 fade-in">
+        <p className="text-lg leading-relaxed text-[#333435] mb-10">
           Wir glauben an ein Leben in Würde, Freiheit und Selbstbestimmung. Unsere Grundwerte bilden das Fundament
           für ein respektvolles Miteinander und schaffen einen Raum, in dem sich jeder Mensch entfalten kann.
         </p>
 
         {/* Section 1: Unsere Grundwerte */}
-        <section className="section-card fade-in" aria-labelledby="grundwerte-title">
+        <section className="section-card" aria-labelledby="grundwerte-title">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex items-center gap-3 mb-5">
@@ -90,13 +55,15 @@ export default function GrundwertePage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                fetchPriority="high"
               />
             </div>
           </div>
         </section>
 
         {/* Section 2: Pflege und Alltag */}
-        <section className="section-card fade-in" aria-labelledby="pflege-title">
+        <section className="section-card" aria-labelledby="pflege-title">
           <div className="flex items-center gap-3 mb-5">
             <div className="section-icon" aria-hidden="true">
               <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#0688B5" strokeWidth="2">
@@ -118,7 +85,7 @@ export default function GrundwertePage() {
         </section>
 
         {/* Section 3: Wohn- und Lebensraum */}
-        <section className="section-card fade-in" aria-labelledby="wohnraum-title">
+        <section className="section-card" aria-labelledby="wohnraum-title">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="relative h-[300px] lg:h-[400px] rounded-xl overflow-hidden order-2 lg:order-1">
               <Image
@@ -127,6 +94,7 @@ export default function GrundwertePage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
             <div className="order-1 lg:order-2">
@@ -153,7 +121,7 @@ export default function GrundwertePage() {
         </section>
 
         {/* Section 4: Hauswirtschaft & Alltag */}
-        <section className="section-card fade-in" aria-labelledby="hauswirtschaft-title">
+        <section className="section-card" aria-labelledby="hauswirtschaft-title">
           <div className="flex items-center gap-3 mb-5">
             <div className="section-icon" aria-hidden="true">
               <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#0688B5" strokeWidth="2">
@@ -180,71 +148,21 @@ export default function GrundwertePage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
           </div>
         </section>
       </div>
 
-      {/* FAQ Section */}
-      <section className="bg-[#E8F5FC] py-[60px] px-5" aria-labelledby="faq-title">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 id="faq-title" className="text-[32px] font-bold text-[#13263f] mb-8 text-center">Häufig gestellte Fragen</h2>
+      {/* Lazy loaded sections */}
+      <Suspense fallback={<div className="bg-[#E8F5FC] py-[60px] px-5" />}>
+        <FAQSection />
+      </Suspense>
 
-          <FAQItem
-            id="1"
-            question="Wie ist die ärztliche Versorgung in der Wohngemeinschaft?"
-            answer="Unsere Bewohner werden regelmäßig von Hausärzten betreut. Bei Bedarf organisieren wir Facharzttermine und begleiten zu den Terminen. Im Notfall ist eine schnelle medizinische Versorgung gewährleistet."
-          />
-
-          <FAQItem
-            id="2"
-            question="Wer ist für die Kostenübernahme zuständig?"
-            answer="Die Kosten werden in der Regel von den Pflegekassen und dem Sozialhilfeträger übernommen. Wir unterstützen Sie gerne bei der Antragstellung und beraten Sie ausführlich zu den Finanzierungsmöglichkeiten."
-          />
-
-          <FAQItem
-            id="3"
-            question="Welche Rolle spielt der Betreuer/die Betreuerin?"
-            answer="Der rechtliche Betreuer vertritt die Interessen des Bewohners in rechtlichen und finanziellen Angelegenheiten. Er arbeitet eng mit uns zusammen, um das Wohl des Bewohners sicherzustellen."
-          />
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="bg-white py-[60px] px-5" aria-labelledby="contact-title">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 id="contact-title" className="text-[32px] font-bold text-[#13263f] mb-10 text-center">Beratung & Kontakt</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#F5F7F9] rounded-xl p-8 text-center">
-              <h3 className="text-xl font-semibold text-[#13263f] mb-3">Adresse</h3>
-              <address className="text-base text-[#333435] leading-relaxed not-italic">
-                WG Südstadt<br />
-                Musterstraße 123<br />
-                38100 Braunschweig
-              </address>
-            </div>
-
-            <div className="bg-[#F5F7F9] rounded-xl p-8 text-center">
-              <h3 className="text-xl font-semibold text-[#13263f] mb-3">Telefon</h3>
-              <p className="text-base text-[#333435] leading-relaxed">
-                <a href="tel:053118054700" className="hover:text-[#0688B5] transition-colors">Tel: (0531) 180 54 700</a><br />
-                Fax: (0531) 180 54 701<br />
-                Mo-Fr: 9:00 - 17:00 Uhr
-              </p>
-            </div>
-
-            <div className="bg-[#F5F7F9] rounded-xl p-8 text-center">
-              <h3 className="text-xl font-semibold text-[#13263f] mb-3">E-Mail & Anfahrt</h3>
-              <p className="text-base text-[#333435] leading-relaxed">
-                <a href="mailto:info@wg-suedstadt.de" className="hover:text-[#0688B5] transition-colors">info@wg-suedstadt.de</a><br />
-                <a href="#anfahrt" className="text-[#0562a8] hover:underline font-medium">Route berechnen</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={<div className="bg-white py-[60px] px-5" />}>
+        <ContactSection />
+      </Suspense>
     </>
   );
 }

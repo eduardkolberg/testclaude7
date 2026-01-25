@@ -29,6 +29,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+
+  // Optimize images
   images: {
     remotePatterns: [
       {
@@ -36,12 +38,46 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
+
+  // Enable compression
+  compress: true,
+
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
+
+  // Experimental optimizations
+  experimental: {
+    optimizeCss: true,
+  },
+
   async headers() {
     return [
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+      // Cache static assets
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache images
+      {
+        source: '/_next/image/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
       },
     ];
   },
