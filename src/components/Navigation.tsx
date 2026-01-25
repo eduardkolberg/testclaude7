@@ -9,11 +9,11 @@ function MenuItemComponent({ item, basePath = "" }: { item: MenuItem; basePath?:
   const currentPath = basePath ? `${basePath}/${item.slug}` : `/${item.slug}`;
 
   return (
-    <li className="relative group">
+    <li className="relative">
       <div className="flex items-center">
         <Link
           href={currentPath}
-          className="px-4 py-2 hover:bg-blue-100 rounded transition-colors block"
+          className="px-4 py-2 hover:bg-blue-100 rounded transition-colors block flex-grow"
         >
           {item.title}
         </Link>
@@ -69,26 +69,47 @@ export default function Navigation() {
             </svg>
           </button>
 
-          {/* Desktop menu */}
+          {/* Desktop menu - Level 1 */}
           <ul className="hidden md:flex space-x-2">
-            {menuData.map((item) => (
-              <li key={item.id} className="relative group">
+            {menuData.map((level1) => (
+              <li key={level1.id} className="relative group">
                 <Link
-                  href={`/${item.slug}`}
+                  href={`/${level1.slug}`}
                   className="px-4 py-2 hover:bg-blue-100 rounded transition-colors inline-block"
                 >
-                  {item.title}
+                  {level1.title}
                 </Link>
-                {item.children && (
-                  <ul className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-lg py-2 min-w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                    {item.children.map((child) => (
-                      <li key={child.id}>
+                {/* Level 2 dropdown */}
+                {level1.children && (
+                  <ul className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-lg py-2 min-w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                    {level1.children.map((level2) => (
+                      <li key={level2.id} className="relative group/sub">
                         <Link
-                          href={`/${item.slug}/${child.slug}`}
-                          className="block px-4 py-2 hover:bg-blue-50"
+                          href={`/${level1.slug}/${level2.slug}`}
+                          className="block px-4 py-2 hover:bg-blue-50 flex justify-between items-center"
                         >
-                          {child.title}
+                          {level2.title}
+                          {level2.children && (
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          )}
                         </Link>
+                        {/* Level 3 dropdown */}
+                        {level2.children && (
+                          <ul className="absolute left-full top-0 ml-1 bg-white shadow-lg rounded-lg py-2 min-w-72 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all z-50">
+                            {level2.children.map((level3) => (
+                              <li key={level3.id}>
+                                <Link
+                                  href={`/${level1.slug}/${level2.slug}/${level3.slug}`}
+                                  className="block px-4 py-2 hover:bg-blue-50"
+                                >
+                                  {level3.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </li>
                     ))}
                   </ul>
