@@ -3,7 +3,12 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+// Lazy load footer as it's below the fold
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <footer className="bg-[#13263f] py-10" />,
+});
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -30,6 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className={`${dmSans.variable} antialiased bg-[#F5F7F9]`} style={{ fontFamily: "'DM Sans', sans-serif" }}>
         {/* Skip to main content link for accessibility */}
         <a

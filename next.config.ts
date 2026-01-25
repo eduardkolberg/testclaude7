@@ -51,6 +51,14 @@ const nextConfig: NextConfig = {
   // Experimental optimizations
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['react', 'react-dom'],
+  },
+
+  // Modularize imports for smaller bundles
+  modularizeImports: {
+    'react': {
+      transform: 'react',
+    },
   },
 
   async headers() {
