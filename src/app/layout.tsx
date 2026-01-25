@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
@@ -12,11 +12,15 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#13263f",
+};
+
 export const metadata: Metadata = {
   title: "WG Südstadt - Senioren-WG Braunschweig",
   description: "Selbstbestimmt leben in familiärer Gemeinschaft. Ihre Senioren-Wohngemeinschaft in Braunschweig.",
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#13263f",
 };
 
 export default function RootLayout({

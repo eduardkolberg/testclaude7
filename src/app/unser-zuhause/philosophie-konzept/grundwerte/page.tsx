@@ -175,8 +175,8 @@ export default function GrundwertePage() {
             </ul>
             <div className="relative h-[250px] lg:h-[300px] rounded-xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=800&h=600&fit=crop"
-                alt="Moderne Waschküche mit Waschmaschinen"
+                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop"
+                alt="Moderne Küche in der Wohngemeinschaft"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
