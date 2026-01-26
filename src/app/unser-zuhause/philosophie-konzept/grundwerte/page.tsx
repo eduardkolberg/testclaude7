@@ -23,9 +23,9 @@ function CheckIcon() {
 }
 
 // Section icon with background
-function SectionIcon({ children }: { children: React.ReactNode }) {
+function SectionIcon({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] rounded-[30px] bg-[#E5F0F3] flex items-center justify-center flex-shrink-0">
+    <div className={`w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] rounded-[30px] bg-[#E5F0F3] flex items-center justify-center flex-shrink-0 ${className}`}>
       {children}
     </div>
   );
