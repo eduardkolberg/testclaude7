@@ -57,9 +57,27 @@ export default function Navigation() {
           {/* Logo + Menu */}
           <div className="flex items-center gap-7">
             {/* Logo */}
-            <Link href="/" className="h-[68px] w-[215px] flex items-center" aria-label="WG Südstadt - Zur Startseite">
-              <div className="bg-gradient-to-r from-[#002CA8] to-[#0688B5] rounded-lg flex items-center justify-center text-white font-bold text-xl px-4 py-3 w-full h-full">
-                WG SÜDSTADT
+            <Link href="/" className="flex items-center gap-3" aria-label="Senioren WG am Hagenmarkt - Zur Startseite">
+              {/* Logo Icon */}
+              <div className="w-[60px] h-[60px] relative flex-shrink-0">
+                <svg viewBox="0 0 60 60" fill="none" className="w-full h-full">
+                  {/* House shape */}
+                  <path d="M30 5L5 25V55H55V25L30 5Z" fill="url(#logoGradient)" />
+                  {/* Star */}
+                  <path d="M30 20L33 28H41L35 33L37 41L30 36L23 41L25 33L19 28H27L30 20Z" fill="#68A31A" />
+                  <defs>
+                    <linearGradient id="logoGradient" x1="5" y1="30" x2="55" y2="30" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#002CA8" />
+                      <stop offset="1" stopColor="#0688B5" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              {/* Logo Text */}
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-lg leading-tight">SENIOREN WG</span>
+                <span className="text-white font-bold text-lg leading-tight">AM HAGENMARKT</span>
+                <span className="text-white/70 text-[10px] leading-tight">Ambulant betreut • Auch mit Demenz</span>
               </div>
             </Link>
 

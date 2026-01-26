@@ -41,42 +41,91 @@ function SmallIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Feature tag component
+function FeatureTag({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <div className="flex items-center gap-2 text-[#333435]">
+      <span className="text-[#0688B5]">{icon}</span>
+      <span className="text-sm font-medium">{label}</span>
+    </div>
+  );
+}
+
 export default function GrundwertePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-[#f1f7f8] py-16">
-        <div className="max-w-[1200px] mx-auto px-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h1 className="text-[42px] font-bold text-[#13263f] leading-tight mb-6">
-                Selbstbestimmt leben: Unsere Grundwerte
-              </h1>
-              <p className="text-lg leading-relaxed text-[#333435] mb-8">
-                Wir glauben an ein Leben in Würde, Freiheit und Selbstbestimmung. Unsere Grundwerte bilden das Fundament
-                für ein respektvolles Miteinander und schaffen einen Raum, in dem sich jeder Mensch entfalten kann.
-              </p>
-              <Link
-                href="/information-kontakt/weg-zu-uns/beratung"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#002CA8] to-[#0688B5] text-white px-8 py-4 rounded-full font-medium text-lg hover:opacity-90 transition-opacity"
-              >
-                Beratung vereinbaren
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <section className="bg-[#f1f7f8] pt-12 pb-0 relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-5 text-center">
+          <h1 className="text-[42px] md:text-[52px] font-bold text-[#13263f] leading-tight mb-6">
+            Selbstbestimmt leben: Unsere Grundwerte
+          </h1>
+          <p className="text-lg md:text-xl leading-relaxed text-[#333435] mb-8 max-w-4xl mx-auto">
+            Wohnen wie zu Hause – mit{" "}
+            <strong className="text-[#13263f]">
+              freier Pflegedienstwahl, 24-Stunden-Präsenz (nicht-medizinisch), offenen Besuchszeiten und demenzsensibler Betreuung.
+            </strong>{" "}
+            Mitten in der Stadt, nah am Leben.
+          </p>
+
+          {/* Feature Tags */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-12">
+            <FeatureTag
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20"/>
                 </svg>
-              </Link>
-            </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/dscf2158.png"
-                alt="Bewohner und Betreuer in gemütlicher Atmosphäre"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
+              }
+              label="Selbstbestimmung"
+            />
+            <FeatureTag
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M14 9V5a3 3 0 00-6 0v4"/>
+                  <path d="M5 9h14a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2z"/>
+                </svg>
+              }
+              label="Freie Pflegedienstwahl"
+            />
+            <FeatureTag
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              }
+              label="24-h Präsenz"
+            />
+            <FeatureTag
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M12 4C8 4 4 8 4 12s4 8 8 8 8-4 8-8-4-8-8-8z"/>
+                  <path d="M12 8v4M12 16h.01"/>
+                </svg>
+              }
+              label="Demenz-kompetent"
+            />
+            <FeatureTag
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                </svg>
+              }
+              label="Zentrum Braunschweig"
+            />
           </div>
+        </div>
+
+        {/* Decorative Wave Pattern */}
+        <div className="w-full h-16 relative overflow-hidden">
+          <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1920 60" preserveAspectRatio="none" fill="none">
+            <g stroke="#0688B5" strokeWidth="1" opacity="0.3">
+              {[...Array(40)].map((_, i) => (
+                <line key={i} x1={i * 50 - 20} y1="60" x2={i * 50 + 40} y2="0" />
+              ))}
+            </g>
+          </svg>
         </div>
       </section>
 
