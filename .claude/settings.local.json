@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(wmic process where \"processid=13736 or processid=9688\" get processid,commandline)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill //F //PID 13736)",
+      "Bash(taskkill:*)",
+      "Bash(start http://localhost:3000)"
+    ]
+  }
+}

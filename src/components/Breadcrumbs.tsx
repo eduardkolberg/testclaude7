@@ -45,20 +45,28 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="bg-[#f1f7f8] py-5" aria-label="Breadcrumb">
+    <nav className="bg-gradient-to-r from-[#E6F8FB] to-[#F0FDFA] py-4 border-b border-cyan-100" aria-label="Breadcrumb">
       <div className="max-w-[1200px] mx-auto px-5">
-        <ol className="flex flex-wrap items-center gap-4 text-sm" role="list">
+        <ol className="flex flex-wrap items-center gap-3 text-base" role="list">
+          <li className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="text-[#1a365d] hover:text-cyan-600 transition-colors"
+            >
+              Startseite
+            </Link>
+          </li>
           {items.map((item, index) => (
-            <li key={item.href} className="flex items-center gap-4">
-              {index > 0 && (
-                <span className="w-px h-3 bg-[#C3D6DD] rotate-12" aria-hidden="true" />
-              )}
+            <li key={item.href} className="flex items-center gap-3">
+              <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
               {index === items.length - 1 ? (
-                <span className="text-[#333435]" aria-current="page">{item.title}</span>
+                <span className="text-[#2D3748] font-medium" aria-current="page">{item.title}</span>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-[#13263f] underline decoration-[#aaafb5] hover:decoration-[#13263f] transition-colors"
+                  className="text-[#1a365d] hover:text-cyan-600 transition-colors"
                 >
                   {item.title}
                 </Link>

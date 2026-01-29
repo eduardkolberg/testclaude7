@@ -1,15 +1,35 @@
 @import "tailwindcss";
 
+/* Base font size for elderly accessibility */
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 17px;
+  }
+}
+
 :root {
-  --color-primary: #13263f;
-  --color-primary-light: #1a3a5c;
-  --color-accent: #0688B5;
-  --color-accent-light: #E8F5FC;
-  --color-green: #68A31A;
-  --color-text: #333435;
-  --color-text-light: #aaafb5;
-  --color-bg: #F5F7F9;
-  --color-white: #ffffff;
+  /* Tonus Dienst Brand Colors - Refined for Premium Feel */
+  --color-primary: #1a365d;          /* Dark navy - logo text */
+  --color-primary-light: #2d4a6a;
+  --color-primary-dark: #0f2847;
+  
+  --color-accent: #00B5D8;           /* Cyan - logo circle */
+  --color-accent-dark: #0097B2;
+  --color-accent-light: #E6F8FB;
+  
+  --color-teal: #38B2AC;             /* Teal - caring hands */
+  --color-teal-light: #81E6D9;
+  
+  --color-bg: #F8FAFC;               /* Slightly cooler white */
+  --color-surface: #ffffff;
+  
+  --color-text: #2D3748;
+  --color-text-light: #718096;
 }
 
 @theme inline {
@@ -23,98 +43,25 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-/* Section styles */
-.section-card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.section-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-accent-light);
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-.check-list {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.check-list li {
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 12px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.check-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--color-green);
-  font-weight: bold;
-  font-size: 18px;
-}
-
-/* FAQ styles */
-.faq-item {
-  background-color: white;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-
-.faq-question {
-  padding: 20px 24px;
-  font-size: 18px;
-  font-weight: 600;
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
   color: var(--color-primary);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.3s;
+  letter-spacing: -0.02em;
 }
 
-.faq-question:hover {
-  background-color: var(--color-bg);
+p {
+  line-height: 1.75;
+  margin-bottom: 1em;
 }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  padding: 0 24px;
-}
-
-.faq-answer.active {
-  padding: 0 24px 20px 24px;
-  max-height: 500px;
-}
-
-.faq-icon {
-  transition: transform 0.3s;
-}
-
-.faq-icon.active {
-  transform: rotate(180deg);
-}
-
-/* Animation */
-@keyframes fadeIn {
+/* Animations */
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -125,7 +72,36 @@ body {
   }
 }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
-/* Deployed: Sun, Jan 25, 2026 10:29:51 PM */
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Accessible Focus */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Smooth Image Loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
