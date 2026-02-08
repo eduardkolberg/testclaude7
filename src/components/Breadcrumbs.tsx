@@ -45,7 +45,7 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="bg-gradient-to-r from-[#E6F8FB] to-[#F0FDFA] py-4 border-b border-cyan-100" aria-label="Breadcrumb">
+    <nav className="bg-gradient-to-r from-[#E6F8FB] to-[#F0FDFA] pt-[96px] pb-4 border-b border-cyan-100" aria-label="Breadcrumb">
       <div className="max-w-[1200px] mx-auto px-5">
         <ol className="flex flex-wrap items-center gap-3 text-base" role="list">
           <li className="flex items-center gap-3">

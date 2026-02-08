@@ -1178,23 +1178,33 @@ export default function Home() {
                   >
                     <span>{faq.q}</span>
                     <span
-                      className="text-[24px] flex-shrink-0 transition-transform"
-                      style={{ transform: openFaq === idx ? "rotate(45deg)" : "none", transitionDuration: "300ms" }}
+                      className="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full transition-all"
+                      style={{
+                        transform: openFaq === idx ? "rotate(45deg)" : "none",
+                        transitionDuration: "300ms",
+                        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                        color: openFaq === idx ? "#00838F" : "#78909C",
+                      }}
                     >
-                      +
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <line x1="8" y1="2" x2="8" y2="14" />
+                        <line x1="2" y1="8" x2="14" y2="8" />
+                      </svg>
                     </span>
                   </button>
                   <div
-                    className="overflow-hidden transition-all"
+                    className="grid"
                     style={{
-                      maxHeight: openFaq === idx ? "500px" : "0",
-                      transitionDuration: "400ms",
-                      transitionTimingFunction: "ease",
+                      gridTemplateRows: openFaq === idx ? "1fr" : "0fr",
+                      opacity: openFaq === idx ? 1 : 0,
+                      transition: "grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms ease",
                     }}
                   >
-                    <p className="pt-4" style={{ ...fontBody, fontSize: "16px", color: "#455A64", lineHeight: 1.65 }}>
-                      {faq.a}
-                    </p>
+                    <div className="overflow-hidden">
+                      <p className="pt-2 pb-4" style={{ ...fontBody, fontSize: "16px", color: "#455A64", lineHeight: 1.65 }}>
+                        {faq.a}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
