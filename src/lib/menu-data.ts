@@ -43,7 +43,7 @@ export const menuData: MenuItem[] = [
   },
   {
     id: "2",
-    title: "Abrechnung",
+    title: "§45b SGB XI & Abrechnung",
     slug: "entlastungsbetrag-abrechnung",
     children: [
       {

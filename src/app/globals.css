@@ -1,107 +1,452 @@
 @import "tailwindcss";
 
-/* Base font size for elderly accessibility */
-html {
-  font-size: 18px;
-  scroll-behavior: smooth;
-}
-
-@media (max-width: 640px) {
-  html {
-    font-size: 17px;
-  }
-}
+/* ============================================
+   TONUS DIENST — Design System 2.0
+   Technical Design Specification
+   ============================================ */
 
 :root {
-  /* Tonus Dienst Brand Colors - Refined for Premium Feel */
-  --color-primary: #1a365d;          /* Dark navy - logo text */
-  --color-primary-light: #2d4a6a;
-  --color-primary-dark: #0f2847;
-  
-  --color-accent: #00B5D8;           /* Cyan - logo circle */
-  --color-accent-dark: #0097B2;
-  --color-accent-light: #E6F8FB;
-  
-  --color-teal: #38B2AC;             /* Teal - caring hands */
-  --color-teal-light: #81E6D9;
-  
-  --color-bg: #F8FAFC;               /* Slightly cooler white */
-  --color-surface: #ffffff;
-  
-  --color-text: #2D3748;
-  --color-text-light: #718096;
+  /* === PRIMARY (from Logo) === */
+  --color-cyan-bright: #4DD0E1;
+  --color-teal-deep: #00838F;
+  --color-teal-dark: #005662;
+  --color-navy: #0D2137;
+
+  /* === SECONDARY === */
+  --color-mint-fresh: #66BB6A;
+  --color-mint-light: #E8F5E9;
+  --color-warm-beige: #FFF8F0;
+  --color-warm-sand: #F5E6D3;
+
+  /* === NEUTRALS === */
+  --color-white: #FFFFFF;
+  --color-off-white: #F7FAFA;
+  --color-grey-light: #E0E7E9;
+  --color-grey-medium: #78909C;
+  --color-grey-dark: #455A64;
+  --color-almost-black: #1A2B3A;
+
+  /* === GRADIENTS === */
+  --gradient-brand: linear-gradient(135deg, #4DD0E1 0%, #00838F 50%, #005662 100%);
+  --gradient-hero: linear-gradient(170deg, #F7FAFA 0%, #E0F2F1 40%, #FFF8F0 100%);
+  --gradient-button: linear-gradient(135deg, #00838F 0%, #005662 100%);
+  --gradient-dark: linear-gradient(160deg, #0D2137 0%, #00363A 100%);
+  --gradient-card-hover: linear-gradient(180deg, #FFFFFF 0%, #E0F7FA 100%);
+  --gradient-cta: linear-gradient(135deg, #4DD0E1 0%, #00838F 100%);
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 3px rgba(0, 131, 143, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 131, 143, 0.12);
+  --shadow-lg: 0 8px 30px rgba(0, 131, 143, 0.15);
+  --shadow-card: 0 2px 8px rgba(13, 33, 55, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(0, 131, 143, 0.18);
+  --shadow-button: 0 4px 12px rgba(0, 131, 143, 0.3);
+  --shadow-button-hover: 0 6px 16px rgba(0, 131, 143, 0.4);
+  --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+  /* === SPACING (8px base) === */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 120px;
+
+  /* === SECTION SPACING === */
+  --section-padding-y: 120px;
+  --section-padding-y-tablet: 80px;
+  --section-padding-y-mobile: 60px;
+
+  /* === BORDER RADIUS === */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* === TRANSITIONS === */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-spring: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Z-INDEX === */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 1000;
+  --z-overlay: 1100;
+  --z-modal: 1200;
+  --z-toast: 1300;
+
+  /* === FONT SIZES (Desktop) — increased for elderly audience === */
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-body: 19px;
+  --font-size-body-large: 22px;
+  --font-size-body-small: 16px;
+  --font-size-caption: 15px;
+  --font-size-btn: 18px;
 }
 
 @theme inline {
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-off-white);
+  --color-foreground: var(--color-grey-dark);
+}
+
+/* === BASE STYLES === */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
+  background: var(--color-off-white);
+  color: var(--color-grey-dark);
+  font-size: var(--font-size-body);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
-/* Enhanced Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-primary);
+  line-height: 1.2;
+  color: var(--color-navy);
   letter-spacing: -0.02em;
 }
 
 p {
-  line-height: 1.75;
-  margin-bottom: 1em;
+  line-height: 1.65;
 }
 
-/* Animations */
+/* === FOCUS STYLES (Accessibility) === */
+*:focus-visible {
+  outline: 3px solid var(--color-cyan-bright);
+  outline-offset: 2px;
+}
+
+/* === ANIMATIONS === */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-stagger {
+  opacity: 0;
+  animation: heroFadeInUp 0.7s ease-out forwards;
+}
+
+.hero-stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.hero-stagger-2 {
+  animation-delay: 0.25s;
+}
+
+.hero-stagger-3 {
+  animation-delay: 0.4s;
+}
+
+.hero-stagger-4 {
+  animation-delay: 0.55s;
+}
+
+.hero-stagger-5 {
+  animation-delay: 0.7s;
+}
+
+.hero-stagger-6 {
+  animation-delay: 0.85s;
+}
+
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+@keyframes badge-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 208, 225, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(77, 208, 225, 0.15);
+  }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes pulse-shadow {
+
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35),
+      0 0 0 8px rgba(255, 255, 255, 0.15);
+  }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes phone-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 131, 143, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 131, 143, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 131, 143, 0);
+  }
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-
-/* Accessible Focus */
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-}
-
-/* Smooth Image Loading */
 img {
   transition: opacity 0.3s ease-in-out;
+}
+
+/* === DROPDOWN BLOCK HOVER === */
+.dd-block {
+  transition: background-color 0.15s ease;
+}
+.dd-block:hover {
+  background-color: #E0F7FA;
+}
+
+/* Links base transition */
+.dd-link {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* First link highlighted ONLY when block is hovered */
+.dd-block:hover li:first-child .dd-link {
+  background-color: #B2EBF2;
+  color: #005662;
+  font-weight: 600;
+}
+
+/* When hovering a NON-first link: unhighlight the first */
+.dd-block:has(li:not(:first-child) .dd-link:hover) li:first-child .dd-link {
+  background-color: transparent;
+  color: #455A64;
+  font-weight: 400;
+}
+
+/* Hovered link — strong contrast */
+.dd-block .dd-link:hover {
+  background-color: #B2EBF2;
+  color: #005662;
+  font-weight: 600;
+}
+
+/* Same for flex layout (bottom row without ul>li) */
+.dd-block-row {
+  transition: background-color 0.15s ease;
+}
+.dd-block-row:hover {
+  background-color: #E0F7FA;
+}
+.dd-block-row:hover .dd-link:first-of-type {
+  background-color: #B2EBF2;
+  color: #005662;
+  font-weight: 600;
+}
+.dd-block-row:has(.dd-link:not(:first-of-type):hover) .dd-link:first-of-type {
+  background-color: transparent;
+  color: #455A64;
+  font-weight: 400;
+}
+.dd-block-row .dd-link:hover {
+  background-color: #B2EBF2;
+  color: #005662;
+  font-weight: 600;
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === RESPONSIVE FONT SIZES === */
+@media (max-width: 767px) {
+  :root {
+    --font-size-h1: 36px;
+    --font-size-h2: 28px;
+    --font-size-h3: 20px;
+    --font-size-body: 17px;
+    --font-size-body-large: 19px;
+    --section-padding-y: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --font-size-h1: 40px;
+    --font-size-h2: 32px;
+    --font-size-h3: 22px;
+    --section-padding-y: 80px;
+  }
+}
+
+/* ============================================
+   TECHNICAL ANIMATIONS (Imported from Clone)
+   ============================================ */
+
+@keyframes accordion-down {
+  from {
+    height: 0
+  }
+
+  to {
+    height: var(--radix-accordion-content-height)
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height)
+  }
+
+  to {
+    height: 0
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0));
+  }
+}
+
+@keyframes exit {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
+  }
+}
+
+/* Animation Utilities */
+.animate-in {
+  animation-name: enter;
+  animation-duration: 0.15s;
+  --tw-enter-opacity: initial;
+  --tw-enter-scale: initial;
+  --tw-enter-rotate: initial;
+  --tw-enter-translate-x: initial;
+  --tw-enter-translate-y: initial;
+}
+
+.animate-out {
+  animation-name: exit;
+  animation-duration: 0.15s;
+  --tw-exit-opacity: initial;
+  --tw-exit-scale: initial;
+  --tw-exit-rotate: initial;
+  --tw-exit-translate-x: initial;
+  --tw-exit-translate-y: initial;
+}
+
+.fade-in-0 {
+  --tw-enter-opacity: 0;
+}
+
+.fade-out-0 {
+  --tw-exit-opacity: 0;
+}
+
+.zoom-in-95 {
+  --tw-enter-scale: 0.95;
+}
+
+.zoom-out-95 {
+  --tw-exit-scale: 0.95;
+}
+
+.slide-in-from-top-2 {
+  --tw-enter-translate-y: -0.5rem;
+}
+
+.slide-in-from-bottom-2 {
+  --tw-enter-translate-y: 0.5rem;
+}
+
+.slide-in-from-left-2 {
+  --tw-enter-translate-x: -0.5rem;
+}
+
+.slide-in-from-right-2 {
+  --tw-enter-translate-x: 0.5rem;
+}
+
+.slide-out-to-top-2 {
+  --tw-exit-translate-y: -0.5rem;
+}
+
+.slide-out-to-bottom-2 {
+  --tw-exit-translate-y: 0.5rem;
+}
+
+.slide-out-to-left-2 {
+  --tw-exit-translate-x: -0.5rem;
+}
+
+.slide-out-to-right-2 {
+  --tw-exit-translate-x: 0.5rem;
+}
+
+/* Data State Animations */
+.data-\[state\=open\]\:animate-accordion-down[data-state=open] {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.data-\[state\=closed\]\:animate-accordion-up[data-state=closed] {
+  animation: accordion-up 0.2s ease-out;
 }
