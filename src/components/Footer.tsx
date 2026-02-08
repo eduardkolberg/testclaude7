@@ -228,6 +228,27 @@ export default function Footer() {
           </nav>
         </div>
       </div>
+
+      {/* Made with love by arka */}
+      <div className="py-4" style={{ background: "#15222e" }}>
+        <a
+          href="https://top.arka-media.de/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-1.5 text-[14px] transition-opacity hover:opacity-80"
+          style={{ color: "rgba(255,255,255,0.5)" }}
+        >
+          <span>Made with</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+            <path d="M0 3.26784C0 4.22421 0.386105 5.0809 0.997666 5.67899H0.994968L1.10162 5.78012C1.10702 5.78445 1.11107 5.78879 1.11512 5.79312L5.62015 10L10.005 5.68044H10.0023C10.6139 5.08235 11 4.22421 11 3.26784C11 1.46345 9.63243 0 7.94624 0C6.94453 0 6.06048 0.509653 5.5 1.27219C4.93952 0.509653 4.05547 0 3.05376 0C1.36757 0 0 1.46345 0 3.26784Z" fill="#D72329" />
+          </svg>
+          <span>by</span>
+          <span className="inline-flex items-center">
+            <Image src="/images/arka-a.png" alt="" width={80} height={72} className="h-[14px] w-auto" />
+            <Image src="/images/arka-rka.png" alt="arka" width={171} height={72} className="h-[14px] w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+          </span>
+        </a>
+      </div>
     </footer>
   );
 }
