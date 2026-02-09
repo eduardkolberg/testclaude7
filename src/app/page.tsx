@@ -170,11 +170,10 @@ export default function Home() {
           SECTION 1: HERO
           ============================================ */}
       <section
-        className="relative flex items-start pt-32 pb-0 overflow-hidden"
+        className="relative flex items-start pt-24 sm:pt-32 pb-0 overflow-x-hidden"
         style={{
           background: "linear-gradient(170deg, #F7FAFA 0%, #E0F2F1 40%, #FFF8F0 100%)",
           minHeight: "max(680px, 90vh)",
-          maxHeight: "900px",
         }}
       >
         {/* Subtle background pattern */}
@@ -190,7 +189,7 @@ export default function Home() {
             <div>
               {/* Badge */}
               <div
-                className="hero-stagger hero-stagger-1 inline-flex items-center gap-2.5 px-6 py-3 rounded-full mb-8 relative overflow-hidden group whitespace-nowrap"
+                className="hero-stagger hero-stagger-1 inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 rounded-full mb-6 sm:mb-8 relative overflow-hidden group"
                 style={{
                   background: "linear-gradient(90deg, #E0F7FA 0%, #E0F2F1 100%)",
                   boxShadow: "0 2px 8px rgba(0,131,143,0.08)",
@@ -305,7 +304,7 @@ export default function Home() {
             <div className="hero-stagger hero-stagger-6 relative pt-6">
               {/* Floating badge */}
               <div
-                className="absolute -top-5 -right-2 z-20 px-5 py-3 bg-white rounded-xl shadow-lg border border-[#E0E7E9]"
+                className="hidden sm:block absolute -top-5 -right-2 z-20 px-5 py-3 bg-white rounded-xl shadow-lg border border-[#E0E7E9]"
                 style={{
                   animation: "float 4s ease-in-out infinite",
                   ...fontHeadings,
@@ -318,7 +317,7 @@ export default function Home() {
               </div>
 
               <div
-                className="relative z-10 p-8 md:p-10"
+                className="relative z-10 p-6 sm:p-8 md:p-10"
                 style={{
                   background: "rgba(255,255,255,0.97)",
                   backdropFilter: "blur(12px)",
@@ -346,14 +345,14 @@ export default function Home() {
 
                 {/* Amount display */}
                 <div
-                  className="text-center p-8 mb-6 relative overflow-hidden"
+                  className="text-center p-5 sm:p-8 mb-6 relative overflow-hidden"
                   style={{
                     backgroundColor: "#DCF5F9",
                     borderRadius: "16px",
                   }}
                 >
-                  <div style={{ ...fontData, fontSize: "48px", fontWeight: 700, color: "#0D2137", lineHeight: 1 }}>
-                    131 € <span style={{ fontSize: "24px", fontWeight: 500, color: "#455A64" }}>/ Monat</span>
+                  <div style={{ ...fontData, fontSize: "clamp(36px, 8vw, 48px)", fontWeight: 700, color: "#0D2137", lineHeight: 1 }}>
+                    131 € <span style={{ fontSize: "clamp(18px, 4vw, 24px)", fontWeight: 500, color: "#455A64" }}>/ Monat</span>
                   </div>
                   <div style={{ ...fontData, fontSize: "15px", fontWeight: 600, color: "#00838F", marginTop: "8px" }}>
                     1.572 € / Jahr
@@ -439,12 +438,11 @@ export default function Home() {
 
         {/* Wave separator */}
         <svg
-          className="absolute bottom-[-1px] left-[-2%] w-[105%] h-[80px]" // Use standard absolute positioning
+          className="absolute bottom-[-1px] left-0 w-full h-[60px] sm:h-[80px]"
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
-          style={{ transform: "scaleX(1.1)", transformOrigin: "bottom center" }} // Ensure full coverage
         >
           <path
             d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
@@ -624,7 +622,7 @@ export default function Home() {
               SO WIRD ES FINANZIERT
             </p>
             <h2 className="mb-6">
-              <span style={{ ...fontData, fontSize: "48px", fontWeight: 700, color: "#FFFFFF", display: "block" }}>131 € monatlich –</span>
+              <span style={{ ...fontData, fontSize: "clamp(28px, 7vw, 48px)", fontWeight: 700, color: "#FFFFFF", display: "block" }}>131 € monatlich –</span>
               <span style={{ ...fontHeadings, fontSize: "var(--font-size-h2)", fontWeight: 700, color: "#4DD0E1" }}>von Ihrer Pflegekasse bezahlt.</span>
             </h2>
             <p style={{ ...fontBody, fontSize: "var(--font-size-body)", color: "rgba(255,255,255,0.9)", lineHeight: 1.65 }}>
@@ -1013,7 +1011,7 @@ export default function Home() {
             <button
               onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
               disabled={currentSlide === 0}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center transition-all shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:bg-[#E0F7FA] hover:text-[#00838F] hover:shadow-[0_6px_16px_rgba(0,131,143,0.15)] disabled:opacity-50 disabled:cursor-not-allowed`}
+              className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white items-center justify-center transition-all shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:bg-[#E0F7FA] hover:text-[#00838F] hover:shadow-[0_6px_16px_rgba(0,131,143,0.15)] disabled:opacity-50 disabled:cursor-not-allowed`}
               aria-label="Previous slide"
             >
               <svg className="w-6 h-6 text-[#00838F] inherit-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -1023,7 +1021,7 @@ export default function Home() {
             <button
               onClick={() => setCurrentSlide(Math.min(testimonialsList.length - (windowWidth < 768 ? 1 : 3), currentSlide + 1))}
               disabled={currentSlide >= testimonialsList.length - (windowWidth < 768 ? 1 : 3)}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center transition-all shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:bg-[#E0F7FA] hover:text-[#00838F] hover:shadow-[0_6px_16px_rgba(0,131,143,0.15)] disabled:opacity-50 disabled:cursor-not-allowed`}
+              className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white items-center justify-center transition-all shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:bg-[#E0F7FA] hover:text-[#00838F] hover:shadow-[0_6px_16px_rgba(0,131,143,0.15)] disabled:opacity-50 disabled:cursor-not-allowed`}
               aria-label="Next slide"
             >
               <svg className="w-6 h-6 text-[#00838F] inherit-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -1096,12 +1094,14 @@ export default function Home() {
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx * (windowWidth < 768 ? 1 : 3))}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${Math.ceil(currentSlide / (windowWidth < 768 ? 1 : 3)) === idx
+                  className="w-10 h-10 flex items-center justify-center"
+                  aria-label={`Go to slide group ${idx + 1}`}
+                >
+                  <span className={`block w-2.5 h-2.5 rounded-full transition-colors ${Math.ceil(currentSlide / (windowWidth < 768 ? 1 : 3)) === idx
                     ? "bg-[#00838F]"
                     : "bg-[#E0E7E9] hover:bg-[#B2EBF2]"
-                    }`}
-                  aria-label={`Go to slide group ${idx + 1}`}
-                />
+                    }`} />
+                </button>
               ))}
             </div>
           </div>
@@ -1208,6 +1208,21 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile CTA */}
+            <div className="lg:hidden mt-8 p-6 rounded-[16px] text-center" style={{ background: "linear-gradient(180deg, #F7FAFA 0%, #E0F7FA 100%)", border: "1px solid #E0E7E9" }}>
+              <p className="mb-4" style={{ ...fontHeadings, fontSize: "18px", fontWeight: 700, color: "#0D2137" }}>Noch Fragen?</p>
+              <a
+                href="tel:+4930610850625"
+                className="inline-flex items-center justify-center gap-2 w-full py-4 text-white rounded-[12px] text-[17px] font-bold"
+                style={{ background: "linear-gradient(135deg, #00838F 0%, #005662 100%)", fontFamily: "var(--font-outfit), 'Outfit', sans-serif" }}
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                030 610 850 625
+              </a>
             </div>
 
             {/* Sidebar: Noch Fragen? */}
