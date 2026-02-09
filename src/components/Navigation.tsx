@@ -206,10 +206,10 @@ export default function Navigation() {
           <Image
             src="/images/tonus-logo-horizontal.png"
             alt="Tonus Dienst GmbH"
-            width={200}
-            height={44}
+            width={280}
+            height={64}
             priority
-            className="h-[44px] w-auto"
+            className="h-[64px] w-auto"
           />
         </Link>
 
