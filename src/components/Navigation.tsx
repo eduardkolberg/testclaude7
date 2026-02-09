@@ -217,8 +217,8 @@ export default function Navigation() {
             alt="Tonus Dienst"
             width={1831}
             height={179}
-            className="hidden sm:block h-[34px] w-auto -mt-[14px]"
-            style={{ height: "34px", width: "auto", marginTop: "-14px" }}
+            className="hidden sm:block h-[17px] w-auto"
+            style={{ height: "17px", width: "auto" }}
           />
         </Link>
 
