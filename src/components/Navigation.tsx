@@ -210,13 +210,15 @@ export default function Navigation() {
             height={630}
             priority
             className="h-[56px] w-auto"
+            style={{ height: "56px", width: "auto" }}
           />
           <Image
             src="/images/tonus-text.png"
             alt="Tonus Dienst"
-            width={1860}
-            height={400}
+            width={1831}
+            height={179}
             className="hidden sm:block h-[34px] w-auto -mt-[14px]"
+            style={{ height: "34px", width: "auto", marginTop: "-14px" }}
           />
         </Link>
 
