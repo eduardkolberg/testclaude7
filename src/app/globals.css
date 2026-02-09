@@ -246,62 +246,7 @@ img {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* === DROPDOWN BLOCK HOVER === */
-.dd-block {
-  transition: background-color 0.15s ease;
-}
-.dd-block:hover {
-  background-color: #E0F7FA;
-}
-
-/* Links base transition */
-.dd-link {
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-/* First link highlighted ONLY when block is hovered */
-.dd-block:hover li:first-child .dd-link {
-  background-color: #B2EBF2;
-  color: #005662;
-  font-weight: 600;
-}
-
-/* When hovering a NON-first link: unhighlight the first */
-.dd-block:has(li:not(:first-child) .dd-link:hover) li:first-child .dd-link {
-  background-color: transparent;
-  color: #455A64;
-  font-weight: 400;
-}
-
-/* Hovered link — strong contrast */
-.dd-block .dd-link:hover {
-  background-color: #B2EBF2;
-  color: #005662;
-  font-weight: 600;
-}
-
-/* Same for flex layout (bottom row without ul>li) */
-.dd-block-row {
-  transition: background-color 0.15s ease;
-}
-.dd-block-row:hover {
-  background-color: #E0F7FA;
-}
-.dd-block-row:hover .dd-link:first-of-type {
-  background-color: #B2EBF2;
-  color: #005662;
-  font-weight: 600;
-}
-.dd-block-row:has(.dd-link:not(:first-of-type):hover) .dd-link:first-of-type {
-  background-color: transparent;
-  color: #455A64;
-  font-weight: 400;
-}
-.dd-block-row .dd-link:hover {
-  background-color: #B2EBF2;
-  color: #005662;
-  font-weight: 600;
-}
+/* === DROPDOWN HOVER === */
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
