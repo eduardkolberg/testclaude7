@@ -202,23 +202,14 @@ export default function Navigation() {
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 flex items-center gap-2.5" aria-label="Tonus Dienst - Zur Startseite">
+        <Link href="/" className="flex-shrink-0" aria-label="Tonus Dienst - Zur Startseite">
           <Image
-            src="/images/tonus-icon.png"
-            alt=""
-            width={670}
-            height={630}
+            src="/images/tonus-logo-horizontal.png"
+            alt="Tonus Dienst GmbH"
+            width={200}
+            height={44}
             priority
-            className="h-[56px] w-auto"
-            style={{ height: "56px", width: "auto" }}
-          />
-          <Image
-            src="/images/tonus-text.png"
-            alt="Tonus Dienst"
-            width={1831}
-            height={179}
-            className="hidden sm:block h-[17px] w-auto"
-            style={{ height: "17px", width: "auto" }}
+            className="h-[44px] w-auto"
           />
         </Link>
 
