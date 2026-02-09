@@ -3,6 +3,7 @@ import { Outfit, Source_Sans_3, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CookieConsent from "@/components/CookieConsent";
 import dynamic from "next/dynamic";
 
 const Footer = dynamic(() => import("@/components/Footer"), {
@@ -197,6 +198,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -2,34 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { menuData, MenuItem } from "@/lib/menu-data";
 
-interface BreadcrumbItem {
-  title: string;
-  slug: string;
-}
-
-function findBreadcrumbPath(
-  items: MenuItem[],
-  slugs: string[],
-  currentPath: BreadcrumbItem[] = []
-): BreadcrumbItem[] | null {
-  for (const item of items) {
-    if (item.slug === slugs[0]) {
-      const newPath = [...currentPath, { title: item.title, slug: item.slug }];
-
-      if (slugs.length === 1) {
-        return newPath;
-      }
-
-      if (item.children) {
-        const result = findBreadcrumbPath(item.children, slugs.slice(1), newPath);
-        if (result) return result;
-      }
-    }
-  }
-  return null;
-}
+/** Map of path segments to display titles */
+const titleMap: Record<string, string> = {
+  leistungen: "Leistungen",
+  alltagsunterstuetzung: "Alltagsunterstützung",
+  "betreuung-begleitung": "Betreuung & Begleitung",
+  "entlastung-angehoerige": "Entlastung für Angehörige",
+  "45b": "§45b SGB XI",
+  entlastungsbetrag: "Entlastungsbetrag erklärt",
+  finanzierung: "Finanzierung",
+  ablauf: "So läuft es ab",
+  abrechnung: "Abrechnung",
+  faq: "FAQ",
+  "ueber-uns": "Über uns",
+  "qualitaet-vertrauen": "Qualität & Vertrauen",
+  kontakt: "Kontakt",
+  einsatzgebiet: "Einsatzgebiet",
+  impressum: "Impressum",
+  datenschutz: "Datenschutz",
+  danke: "Vielen Dank",
+  karriere: "Karriere",
+};
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
@@ -37,11 +31,11 @@ export default function Breadcrumbs() {
   if (pathname === "/") return null;
 
   const slugs = pathname.split("/").filter(Boolean);
-  const breadcrumbs = findBreadcrumbPath(menuData, slugs) || [];
 
-  const items = breadcrumbs.map((crumb, index) => {
+  const items = slugs.map((slug, index) => {
     const href = "/" + slugs.slice(0, index + 1).join("/");
-    return { title: crumb.title, href };
+    const title = titleMap[slug] || slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " ");
+    return { title, href };
   });
 
   return (
