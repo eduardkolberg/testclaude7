@@ -48,7 +48,19 @@ export const metadata: Metadata = {
   authors: [{ name: "Tonus Dienst GmbH" }],
   creator: "Tonus Dienst GmbH",
   publisher: "Tonus Dienst GmbH",
-  robots: "index, follow",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "none",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -72,6 +84,19 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://tonusdienst.de",
+  },
+  other: {
+    "googlebot": "noindex, nofollow",
+    "ai-agent": "noindex, nofollow, noimageai",
+    "GPTBot": "noindex, nofollow, noimageai, noai",
+    "ChatGPT-User": "noindex, nofollow, noimageai, noai",
+    "Google-Extended": "noindex, nofollow, noimageai, noai",
+    "CCBot": "noindex, nofollow, noimageai, noai",
+    "FacebookBot": "noindex, nofollow, noimageai, noai",
+    "AnthropicAI": "noindex, nofollow, noimageai, noai",
+    "Claude-Web": "noindex, nofollow, noimageai, noai",
+    "AdsBot-Google": "noindex, nofollow",
+    "Amazonbot": "noindex, nofollow",
   },
 };
 

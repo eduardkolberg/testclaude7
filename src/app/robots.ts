@@ -4,8 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
-      disallow: ["/api/", "/danke"],
+      allow: [],
+      disallow: "/",
     },
     sitemap: "https://tonusdienst.de/sitemap.xml",
   };
