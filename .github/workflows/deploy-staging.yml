@@ -22,7 +22,8 @@ jobs:
           script_stop: true
           script: |
             cd /opt/staging
-            sudo chown -R $(whoami):$(whoami) .git
+            git config --global --add safe.directory /opt/staging
+            chmod -R u+w .git/objects || true
             git pull origin main
             docker compose build staging
             docker compose up -d staging

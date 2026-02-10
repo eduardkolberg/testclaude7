@@ -26,7 +26,8 @@ jobs:
           script_stop: true
           script: |
             cd /opt/production
-            sudo chown -R $(whoami):$(whoami) .git
+            git config --global --add safe.directory /opt/production
+            chmod -R u+w .git/objects || true
             git pull origin main
             docker compose --profile prod build --no-cache production
             docker compose --profile prod up -d production
