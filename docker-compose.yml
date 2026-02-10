@@ -26,6 +26,12 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_ENV=production
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - SMTP_SECURE=${SMTP_SECURE}
+      - SMTP_FROM=${SMTP_FROM}
     networks:
       - webnet
     profiles:
