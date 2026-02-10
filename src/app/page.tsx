@@ -14,6 +14,7 @@ import USPGrid from "@/components/sections/USPGrid";
 import ServiceAreaSection from "@/components/sections/ServiceAreaSection";
 import TestimonialsCarousel from "@/components/sections/TestimonialsCarousel";
 import FAQWithSidebar from "@/components/sections/FAQWithSidebar";
+import FinancingSection from "@/components/sections/FinancingSection";
 import EntlastungsCalculator from "@/components/EntlastungsCalculator";
 
 /* ============================================
@@ -145,9 +146,6 @@ export default function Home() {
     }
     return () => { document.body.style.overflow = ""; };
   }, [showCalculator]);
-
-  // Entlastungsbetrag section animation
-  const entlastung = useInView(0.15);
 
   const trustBarItems = [
     { value: `${years.value}+`, label: "Jahre Erfahrung" },
@@ -361,68 +359,9 @@ export default function Home() {
       </section>
 
       {/* ============================================
-          SECTION 4: ENTLASTUNGSBETRAG (Dark)
+          SECTION 4: FINANZIERUNG (Dark)
           ============================================ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #0D2137 0%, #00363A 100%)", padding: "var(--section-padding-y) 0" }}
-        ref={entlastung.ref}
-      >
-        <div className="absolute top-10 right-10 w-[300px] h-[300px] opacity-[0.04]">
-          <svg viewBox="0 0 200 200" fill="white">
-            <circle cx="100" cy="100" r="90" stroke="white" strokeWidth="4" fill="none" />
-            <circle cx="100" cy="60" r="20" fill="white" />
-            <path d="M60,120 Q60,80 100,80 Q140,80 140,120 Q140,160 100,170 Q60,160 60,120Z" fill="white" />
-          </svg>
-        </div>
-
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="mb-3" style={{ ...fontHeadings, fontSize: "14px", fontWeight: 600, color: "#4DD0E1", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              SO WIRD ES FINANZIERT
-            </p>
-            <h2 className="mb-6">
-              <span style={{ ...fontData, fontSize: "clamp(28px, 7vw, 48px)", fontWeight: 700, color: "#FFFFFF", display: "block" }}>131 € monatlich –</span>
-              <span style={{ ...fontHeadings, fontSize: "var(--font-size-h2)", fontWeight: 700, color: "#4DD0E1" }}>von Ihrer Pflegekasse bezahlt.</span>
-            </h2>
-            <p style={{ ...fontBody, fontSize: "var(--font-size-body)", color: "rgba(255,255,255,0.9)", lineHeight: 1.65 }}>
-              Jeder Pflegebedürftige mit Pflegegrad 1–5 hat Anspruch auf den Entlastungsbetrag nach §45b SGB XI. Wir rechnen direkt mit Ihrer Kasse ab – für Sie entstehen keine Kosten.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12">
-            {[1, 2, 3, 4, 5].map((grade, idx) => (
-              <div
-                key={grade}
-                className="text-center p-5 rounded-[12px] transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  opacity: entlastung.visible ? 1 : 0,
-                  transform: entlastung.visible ? "translateY(0)" : "translateY(20px)",
-                  transition: `all 0.5s ease-out ${idx * 0.1}s`,
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#4DD0E1"; e.currentTarget.style.boxShadow = "0 0 20px rgba(77,208,225,0.2)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.boxShadow = "none"; }}
-              >
-                <div style={{ ...fontBody, fontSize: "14px", color: "rgba(255,255,255,0.85)", marginBottom: "8px" }}>Pflegegrad {grade}</div>
-                <div style={{ ...fontData, fontSize: "24px", fontWeight: 700, color: "white", marginBottom: "8px" }}>131 €</div>
-                <div className="text-[#66BB6A] text-[20px]">&#10003;</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a
-              href="tel:+4930610850625"
-              className="inline-flex items-center gap-2 text-white rounded-full transition-all hover:scale-[1.03]"
-              style={{ background: "linear-gradient(135deg, #4DD0E1 0%, #00838F 100%)", padding: "16px 40px", ...fontHeadings, fontSize: "var(--font-size-btn)", fontWeight: 700, boxShadow: "0 4px 16px rgba(77,208,225,0.4)" }}
-            >
-              Anspruch prüfen – kostenlos
-            </a>
-          </div>
-        </div>
-      </section>
+      <FinancingSection />
 
       {/* ============================================
           SECTION 5: PROCESS STEPPER

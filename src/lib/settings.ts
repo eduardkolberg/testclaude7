@@ -33,13 +33,13 @@ export const settings = {
     maxRolloverMonths: 18,
   },
 
-  /** Pflegegrade 1-5: all get 131 EUR */
+  /** Pflegegrade 1-5: §45b + §45a Umwidmung (40% von §36, ab 01.01.2025) */
   pflegegrade: [
-    { grad: 1, entlastungsbetrag: 131 },
-    { grad: 2, entlastungsbetrag: 131 },
-    { grad: 3, entlastungsbetrag: 131 },
-    { grad: 4, entlastungsbetrag: 131 },
-    { grad: 5, entlastungsbetrag: 131 },
+    { grad: 1, entlastungsbetrag: 131, sachleistung: 0, umwidmung: 0, gesamt: 131 },
+    { grad: 2, entlastungsbetrag: 131, sachleistung: 796, umwidmung: 318, gesamt: 449 },
+    { grad: 3, entlastungsbetrag: 131, sachleistung: 1497, umwidmung: 599, gesamt: 730 },
+    { grad: 4, entlastungsbetrag: 131, sachleistung: 1859, umwidmung: 744, gesamt: 875 },
+    { grad: 5, entlastungsbetrag: 131, sachleistung: 2299, umwidmung: 920, gesamt: 1051 },
   ],
 
   /** Service rates for the calculator */
