@@ -4,6 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import InfoBox from "@/components/InfoBox";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "Alltagsunterstützung in Berlin | Haushaltshilfe, Einkaufshilfe & Mahlzeiten",
@@ -84,6 +85,8 @@ export default function AlltagsunterstuetzungPage() {
         subtitle="Haushalt, Wäsche, Fenster, Einkauf, Mahlzeiten – wir übernehmen die Aufgaben, die im Alltag zur Belastung werden. Zuverlässig, regelmäßig und mit Herz."
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
+
+      <SidebarCTA />
 
       {sections.map((section, idx) => (
         <ContentSection
