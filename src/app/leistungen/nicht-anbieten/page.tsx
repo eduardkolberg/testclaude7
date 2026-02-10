@@ -4,6 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import InfoBox from "@/components/InfoBox";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Was wir NICHT anbieten | Leistungsgrenzen | Tonus Dienst Berlin",
@@ -48,6 +49,7 @@ export default function NichtAnbietenPage() {
                 subtitle={"Wir möchten, dass Sie genau wissen, was wir leisten können – und was nicht. So vermeiden wir Missverständnisse und können uns auf das konzentrieren, was wir richtig gut können."}
                 ctaSecondary={{ label: "Was wir anbieten", href: "/leistungen" }}
             />
+            <SidebarCTA />
 
             {sections.map((section, idx) => (
                 <ContentSection

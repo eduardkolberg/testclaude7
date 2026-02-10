@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Vertrag & Kündigung | Vertragsabschluss erklärt | Tonus Dienst Berlin",
@@ -19,6 +20,7 @@ export default function VertragPage() {
                 subtitle="Ein Vertrag schützt beide Seiten. Hier erfahren Sie, warum er notwendig ist, was drinsteht und wie einfach eine Kündigung funktioniert."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
+            <SidebarCTA />
 
             {/* Vertragsabschluss */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

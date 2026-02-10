@@ -4,6 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import InfoBox from "@/components/InfoBox";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "So arbeiten wir | Terminplanung, Personal & Kommunikation | Tonus Dienst",
@@ -72,6 +73,7 @@ export default function SoArbeitenWirPage() {
                 subtitle={"Transparente Terminplanung, feste Bezugspersonen und klare Kommunikation – so gestalten wir die Zusammenarbeit einfach und vertrauensvoll."}
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
+            <SidebarCTA />
 
             {sections.map((section, idx) => (
                 <ContentSection

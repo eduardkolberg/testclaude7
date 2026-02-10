@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/sections/SectionHeader";
 import LinkCardGrid from "@/components/LinkCardGrid";
 import { settings } from "@/lib/settings";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "§45b SGB XI – Entlastungsbetrag verständlich erklärt | Tonus Dienst Berlin",
@@ -85,6 +86,7 @@ export default function Paragraph45bPage() {
         ctaPrimary={{ label: "Jetzt beraten lassen", href: "tel:+4930610850625" }}
         ctaSecondary={{ label: "Unsere Leistungen", href: "/leistungen" }}
       />
+      <SidebarCTA />
 
       <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">

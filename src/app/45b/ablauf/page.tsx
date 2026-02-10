@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Ihr Weg zur Hilfe | Ablauf Schritt für Schritt | Tonus Dienst Berlin",
@@ -52,6 +53,7 @@ export default function AblaufPage() {
                 subtitle="Von der ersten Anfrage bis zum regelmäßigen Besuch – transparent, planbar und ohne Überraschungen. Wir begleiten Sie durch den gesamten Prozess."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
+            <SidebarCTA />
 
             {/* Steps */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

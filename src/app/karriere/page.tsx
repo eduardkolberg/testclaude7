@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Karriere bei Tonus Dienst | Jobs als Alltagshelferin Berlin",
@@ -37,6 +38,7 @@ export default function KarrierePage() {
                 subtitle="Werden Sie Teil unseres Teams und unterstützen Sie pflegebedürftige Menschen in Berlin – als Alltagshelferin bei Tonus Dienst GmbH."
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
+            <SidebarCTA />
 
             {/* Benefits */}
             <section id="vorteile" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

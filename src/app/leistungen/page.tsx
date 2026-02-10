@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "Unsere Leistungen | Tonus Dienst GmbH – Alltagshilfe in Berlin",
@@ -55,6 +56,7 @@ export default function LeistungenPage() {
         subtitle="Von der Haushaltshilfe bis zur Begleitung zum Arzt – wir unterstützen pflegebedürftige Menschen und entlasten ihre Angehörigen. Alle Leistungen sind über den Entlastungsbetrag (§45b SGB XI) abrechenbar."
         ctaSecondary={{ label: "Mehr zu §45b erfahren", href: "/45b" }}
       />
+      <SidebarCTA />
 
       <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">

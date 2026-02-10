@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 const faqSections = [
     {
@@ -157,6 +158,7 @@ export default function FAQPage() {
                 subtitle="Die wichtigsten Fragen und Antworten rund um unsere Leistungen, Kosten, Personal und Organisation – übersichtlich zusammengestellt."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
+            <SidebarCTA />
 
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>
                 <div className="max-w-[900px] mx-auto px-6 md:px-10">

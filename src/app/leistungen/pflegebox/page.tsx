@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Kostenlose Pflegebox | Bis zu 40 €/Monat | Tonus Dienst Berlin",
@@ -36,6 +37,7 @@ export default function PflegeboxPage() {
                 ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
                 features={["Ab Pflegegrad 1", "Bis 40 €/Monat", "Kostenlose Lieferung"]}
             />
+            <SidebarCTA />
 
             {/* Box Contents */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import { settings } from "@/lib/settings";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Über uns | Tonus Dienst GmbH Berlin | Anerkannter Anbieter §45b",
@@ -20,6 +21,7 @@ export default function UeberUnsPage() {
                 subtitle="Wir sind ein vom Berliner Senat anerkannter Anbieter für Alltagshilfe nach §45b SGB XI. Unser Team unterstützt pflegebedürftige Menschen und ihre Angehörigen – mit Herz, Verlässlichkeit und klaren Strukturen."
                 features={["Senat-Anerkennung", "Über 500 Kunden", "Versicherter Service"]}
             />
+            <SidebarCTA />
 
             {/* Company Info */}
             <section id="unternehmen" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

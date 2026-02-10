@@ -3,6 +3,7 @@ import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import { settings } from "@/lib/settings";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Finanzierung & Kosten | 131 € Entlastungsbetrag nutzen | Tonus Dienst",
@@ -24,6 +25,7 @@ export default function FinanzierungPage() {
                 subtitle={`${monthlyAmount} € pro Monat stehen Ihnen zu – für anerkannte Alltagshilfe. Wir erklären, wie Sie Ihr Guthaben optimal nutzen, was bei Übertrag passiert und wann private Zuzahlung sinnvoll ist.`}
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
+            <SidebarCTA />
 
             {/* Budget Overview */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

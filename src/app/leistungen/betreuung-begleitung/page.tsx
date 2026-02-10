@@ -4,6 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import InfoBox from "@/components/InfoBox";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "Betreuung & Begleitung in Berlin | Arztbegleitung, Spaziergänge & Friedhof",
@@ -60,6 +61,7 @@ export default function BetreuungBegleitungPage() {
         subtitle="Ob zum Arzt, zur Behörde, in den Park oder zum Friedhof – wir sind an Ihrer Seite. Für mehr Sicherheit, Gesellschaft und Lebensqualität im Alltag."
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
+      <SidebarCTA />
 
       {sections.map((section, idx) => (
         <ContentSection

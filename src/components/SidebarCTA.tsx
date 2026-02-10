@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SidebarCTA() {
     return (
-        <div className="hidden xl:block fixed right-8 top-1/2 -translate-y-1/2 z-30">
+        <div className="hidden 2xl:block fixed right-8 top-1/2 -translate-y-1/2 z-30">
             <div
                 className="rounded-2xl p-6 w-[280px]"
                 style={{

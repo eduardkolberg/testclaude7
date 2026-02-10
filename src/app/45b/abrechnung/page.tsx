@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
     title: "Abrechnung & Nachweise | Direktabrechnung & Leistungsnachweis | Tonus Dienst",
@@ -19,6 +20,7 @@ export default function AbrechnungPage() {
                 subtitle="Die Abrechnung mit Ihrer Pflegekasse ist für viele Kunden die größte Hürde. Bei uns müssen Sie sich darum nicht kümmern – wir rechnen direkt ab."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
+            <SidebarCTA />
 
             {/* Direktabrechnung */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

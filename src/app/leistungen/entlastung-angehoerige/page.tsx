@@ -4,6 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import InfoBox from "@/components/InfoBox";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "Entlastung für Angehörige in Berlin | Stundenweise Betreuung",
@@ -48,6 +49,7 @@ export default function EntlastungAngehoerigePagee() {
         subtitle="Sie pflegen mit Herz – wir unterstützen Sie dabei. Stundenweise Entlastung und Hilfe bei der Organisation, damit Sie Zeit für sich finden."
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
+      <SidebarCTA />
 
       {sections.map((section, idx) => (
         <ContentSection

@@ -3,6 +3,7 @@ import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/HeroSection";
 import { settings } from "@/lib/settings";
+import SidebarCTA from "@/components/SidebarCTA";
 
 export const metadata: Metadata = {
   title: "Entlastungsbetrag nach §45b SGB XI erklärt | Tonus Dienst Berlin",
@@ -22,6 +23,7 @@ export default function EntlastungsbetragPage() {
         subtitle={`Der Entlastungsbetrag ist eine Leistung Ihrer Pflegekasse: ${monthlyAmount} € pro Monat (${yearlyAmount} € pro Jahr) für anerkannte Alltagshilfe. Wir erklären, wer Anspruch hat und wie Sie ihn nutzen.`}
         ctaSecondary={{ label: "Zurück zur Übersicht", href: "/45b" }}
       />
+      <SidebarCTA />
 
       {/* Section 2.1.1: Was ist §45b SGB XI? */}
       <section id="was-ist-45b" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>
