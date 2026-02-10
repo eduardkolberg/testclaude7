@@ -99,6 +99,19 @@
   --color-foreground: var(--color-grey-dark);
 }
 
+/* === FONT UTILITY CLASSES === */
+.font-outfit {
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+}
+
+.font-source {
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+}
+
+.font-dm {
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+}
+
 /* === BASE STYLES === */
 html {
   font-size: 16px;

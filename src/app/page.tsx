@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { settings } from "@/lib/settings";
 import { useInView } from "@/hooks/useInView";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -13,6 +14,7 @@ import USPGrid from "@/components/sections/USPGrid";
 import ServiceAreaSection from "@/components/sections/ServiceAreaSection";
 import TestimonialsCarousel from "@/components/sections/TestimonialsCarousel";
 import FAQWithSidebar from "@/components/sections/FAQWithSidebar";
+import EntlastungsCalculator from "@/components/EntlastungsCalculator";
 
 /* ============================================
    DATA
@@ -117,6 +119,7 @@ const fontData = { fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" };
 export default function Home() {
   const [pflegegrad, setPflegegrad] = useState(1);
   const [abrechnungsart, setAbrechnungsart] = useState<"direkt" | "kosten">("direkt");
+  const [showCalculator, setShowCalculator] = useState(false);
   const monthlyAmount = settings.entlastungsbetrag.monthlyAmount;
 
   // Count-up for trust bar
@@ -132,6 +135,16 @@ export default function Home() {
       rating.start();
     }
   }, [trustBar.visible]);
+
+  // Lock body scroll when calculator modal is open
+  useEffect(() => {
+    if (showCalculator) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [showCalculator]);
 
   // Entlastungsbetrag section animation
   const entlastung = useInView(0.15);
@@ -308,6 +321,7 @@ export default function Home() {
                 </div>
 
                 <button
+                  onClick={() => setShowCalculator(true)}
                   className="w-full py-4 text-white rounded-[12px] transition-all hover:-translate-y-0.5 cursor-pointer"
                   style={{ background: "linear-gradient(135deg, #00838F 0%, #005662 100%)", ...fontHeadings, fontSize: "var(--font-size-btn)", fontWeight: 700, boxShadow: "0 4px 12px rgba(0,131,143,0.3)", border: "none" }}
                 >
@@ -528,6 +542,28 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Calculator Modal */}
+      <AnimatePresence>
+        {showCalculator && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1200] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+            onClick={(e) => { if (e.target === e.currentTarget) setShowCalculator(false); }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+            >
+              <EntlastungsCalculator onClose={() => setShowCalculator(false)} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
