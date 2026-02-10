@@ -49,7 +49,7 @@ export default function EntlastungAngehoerigePagee() {
         subtitle="Sie pflegen mit Herz – wir unterstützen Sie dabei. Stundenweise Entlastung und Hilfe bei der Organisation, damit Sie Zeit für sich finden."
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
-      <SidebarCTA />
+      <SidebarCTA topic="Entlastung" />
 
       {sections.map((section, idx) => (
         <ContentSection

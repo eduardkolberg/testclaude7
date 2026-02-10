@@ -86,7 +86,7 @@ export default function AlltagsunterstuetzungPage() {
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
 
-      <SidebarCTA />
+      <SidebarCTA topic="Alltagshilfe" />
 
       {sections.map((section, idx) => (
         <ContentSection

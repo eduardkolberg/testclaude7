@@ -38,7 +38,7 @@ export default function KarrierePage() {
                 subtitle="Werden Sie Teil unseres Teams und unterstützen Sie pflegebedürftige Menschen in Berlin – als Alltagshelferin bei Tonus Dienst GmbH."
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Karriere" />
 
             {/* Benefits */}
             <section id="vorteile" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

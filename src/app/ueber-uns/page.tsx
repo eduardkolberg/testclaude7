@@ -21,7 +21,7 @@ export default function UeberUnsPage() {
                 subtitle="Wir sind ein vom Berliner Senat anerkannter Anbieter für Alltagshilfe nach §45b SGB XI. Unser Team unterstützt pflegebedürftige Menschen und ihre Angehörigen – mit Herz, Verlässlichkeit und klaren Strukturen."
                 features={["Senat-Anerkennung", "Über 500 Kunden", "Versicherter Service"]}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Tonus Dienst" />
 
             {/* Company Info */}
             <section id="unternehmen" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

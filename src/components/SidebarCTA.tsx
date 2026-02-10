@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function SidebarCTA() {
+export default function SidebarCTA({ topic = "Leistungen" }: { topic?: string }) {
     return (
         <div className="hidden 2xl:block fixed right-8 top-1/2 -translate-y-1/2 z-30">
             <div
@@ -22,7 +22,7 @@ export default function SidebarCTA() {
                         marginBottom: "8px",
                     }}
                 >
-                    Fragen zu Leistungen?
+                    Fragen zu {topic}?
                 </h3>
                 <p
                     style={{

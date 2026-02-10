@@ -25,7 +25,7 @@ export default function FinanzierungPage() {
                 subtitle={`${monthlyAmount} € pro Monat stehen Ihnen zu – für anerkannte Alltagshilfe. Wir erklären, wie Sie Ihr Guthaben optimal nutzen, was bei Übertrag passiert und wann private Zuzahlung sinnvoll ist.`}
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Finanzierung" />
 
             {/* Budget Overview */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

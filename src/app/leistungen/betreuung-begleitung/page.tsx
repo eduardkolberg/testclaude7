@@ -61,7 +61,7 @@ export default function BetreuungBegleitungPage() {
         subtitle="Ob zum Arzt, zur Behörde, in den Park oder zum Friedhof – wir sind an Ihrer Seite. Für mehr Sicherheit, Gesellschaft und Lebensqualität im Alltag."
         ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
       />
-      <SidebarCTA />
+      <SidebarCTA topic="Betreuung" />
 
       {sections.map((section, idx) => (
         <ContentSection

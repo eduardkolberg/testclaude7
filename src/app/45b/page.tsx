@@ -86,7 +86,7 @@ export default function Paragraph45bPage() {
         ctaPrimary={{ label: "Jetzt beraten lassen", href: "tel:+4930610850625" }}
         ctaSecondary={{ label: "Unsere Leistungen", href: "/leistungen" }}
       />
-      <SidebarCTA />
+      <SidebarCTA topic="§45b" />
 
       <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">

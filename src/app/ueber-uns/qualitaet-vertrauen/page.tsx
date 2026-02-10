@@ -53,7 +53,7 @@ export default function QualitaetVertrauenPage() {
                 subtitle="Qualität entsteht durch klare Standards, persönliche Beziehungen und die Bereitschaft, auf Ihre Wünsche einzugehen. Erfahren Sie, was uns von anderen unterscheidet."
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Qualität" />
 
             {/* Principles */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

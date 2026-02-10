@@ -158,7 +158,7 @@ export default function FAQPage() {
                 subtitle="Die wichtigsten Fragen und Antworten rund um unsere Leistungen, Kosten, Personal und Organisation – übersichtlich zusammengestellt."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="§45b" />
 
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>
                 <div className="max-w-[900px] mx-auto px-6 md:px-10">

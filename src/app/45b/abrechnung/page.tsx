@@ -20,7 +20,7 @@ export default function AbrechnungPage() {
                 subtitle="Die Abrechnung mit Ihrer Pflegekasse ist für viele Kunden die größte Hürde. Bei uns müssen Sie sich darum nicht kümmern – wir rechnen direkt ab."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Abrechnung" />
 
             {/* Direktabrechnung */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

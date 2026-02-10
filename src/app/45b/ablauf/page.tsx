@@ -53,7 +53,7 @@ export default function AblaufPage() {
                 subtitle="Von der ersten Anfrage bis zum regelmäßigen Besuch – transparent, planbar und ohne Überraschungen. Wir begleiten Sie durch den gesamten Prozess."
                 ctaSecondary={{ label: "§45b Übersicht", href: "/45b" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Ablauf" />
 
             {/* Steps */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

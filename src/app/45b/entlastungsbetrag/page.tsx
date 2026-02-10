@@ -23,7 +23,7 @@ export default function EntlastungsbetragPage() {
         subtitle={`Der Entlastungsbetrag ist eine Leistung Ihrer Pflegekasse: ${monthlyAmount} € pro Monat (${yearlyAmount} € pro Jahr) für anerkannte Alltagshilfe. Wir erklären, wer Anspruch hat und wie Sie ihn nutzen.`}
         ctaSecondary={{ label: "Zurück zur Übersicht", href: "/45b" }}
       />
-      <SidebarCTA />
+      <SidebarCTA topic="Entlastungsbetrag" />
 
       {/* Section 2.1.1: Was ist §45b SGB XI? */}
       <section id="was-ist-45b" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

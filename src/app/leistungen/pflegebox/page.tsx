@@ -37,7 +37,7 @@ export default function PflegeboxPage() {
                 ctaSecondary={{ label: "Alle Leistungen", href: "/leistungen" }}
                 features={["Ab Pflegegrad 1", "Bis 40 €/Monat", "Kostenlose Lieferung"]}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Pflegebox" />
 
             {/* Box Contents */}
             <section className="bg-white" style={{ padding: "var(--section-padding-y) 0" }}>

@@ -37,7 +37,7 @@ export default function EinsatzgebietPage() {
                 features={[`${settings.districts.length} Bezirke`, "PLZ 10115–14199", "Kostenlose Beratung"]}
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="Einsatzgebiet" />
 
             {/* District Grid */}
             <section id="bezirke" className="bg-white scroll-mt-24" style={{ padding: "var(--section-padding-y) 0" }}>

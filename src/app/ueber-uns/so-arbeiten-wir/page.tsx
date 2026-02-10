@@ -73,7 +73,7 @@ export default function SoArbeitenWirPage() {
                 subtitle={"Transparente Terminplanung, feste Bezugspersonen und klare Kommunikation – so gestalten wir die Zusammenarbeit einfach und vertrauensvoll."}
                 ctaSecondary={{ label: "Über uns", href: "/ueber-uns" }}
             />
-            <SidebarCTA />
+            <SidebarCTA topic="unserer Arbeit" />
 
             {sections.map((section, idx) => (
                 <ContentSection
